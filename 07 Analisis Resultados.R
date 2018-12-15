@@ -43,7 +43,7 @@ aux = dataset %>%
   summarise(votos = sum(votos_sv_est))
 
 #Reception de Votos de votos
-ggplot(aux %>% filter(tendencia_origen != "nula" |  tendencia_destino != "noVoto_sv"),
+ggplot(aux %>% filter(origen_voto != "noVoto_pv" |  tendencia_destino != "noVoto_sv"),
        aes(tendencia_destino, 
            votos,
            fill=origen_voto )) + 
@@ -52,7 +52,7 @@ ggplot(aux %>% filter(tendencia_origen != "nula" |  tendencia_destino != "noVoto
   xlab('destino') +
   scale_fill_tableau() +
   theme(axis.text.x = element_text(angle = 45, hjust = 1, size = 10))
-ggsave("final_partido.png",width = 4,height = 4.5,dpi = 300)
+ggsave("final_abierto.png",width = 6,height = 4.5,dpi = 300)
 
 # Final
 aux = dataset %>% 
